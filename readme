@@ -1,16 +1,22 @@
+EasyChoose: A Continuous Feature Extraction and Review Highlighting Scheme on Hadoop YARN
+
+this project is implementation of the iee paper -- https://ieeexplore.ieee.org/document/8432347
+
 install hadoop and spark2.3.3 and set the spark master as Yarn 
 
-hdf dfs mkdir /location_in_hdfs --->to create a folder
+run dfs and yarn of hadoop
 
-hdfs dfs -put /folder_location_local_system /folder_location_in_hdfs   --> to upload files to hdfs
+download stanford parser and extract it and set the paths in first.py file for  stanford-parser.jar , stnford-parser-models.jar and englishPCFG.ser.gz  
 
-hdfs dfs -rmr /foldername --->to delete the existing folders
-
-
-#go to the directory and run these commands one by one
+upload reviews to the root folder of hdfs( command : "hdfs dfs -put /reviews /")
+then 
+#go to the /code directory and run these commands one by one
 
 spark-submit --deploy-mode client --master yarn --class org.apache.spark.examples.SparkPi first.py
 
 spark-submit --deploy-mode client --master yarn --class org.apache.spark.examples.SparkPi second.py
 
 spark-submit --deploy-mode client --master yarn --class org.apache.spark.examples.SparkPi analysis.py
+
+intermediate output folder --> /output (hdfs)
+final output folder --> /fo  (hdfs)
