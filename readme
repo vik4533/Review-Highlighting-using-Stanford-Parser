@@ -1,0 +1,16 @@
+install hadoop and spark2.3.3 and set the spark master as Yarn 
+
+hdf dfs mkdir /location_in_hdfs --->to create a folder
+
+hdfs dfs -put /folder_location_local_system /folder_location_in_hdfs   --> to upload files to hdfs
+
+hdfs dfs -rmr /foldername --->to delete the existing folders
+
+
+#go to the directory and run these commands one by one
+
+spark-submit --deploy-mode client --master yarn --class org.apache.spark.examples.SparkPi first.py
+
+spark-submit --deploy-mode client --master yarn --class org.apache.spark.examples.SparkPi second.py
+
+spark-submit --deploy-mode client --master yarn --class org.apache.spark.examples.SparkPi analysis.py
